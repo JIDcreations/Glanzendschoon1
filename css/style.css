@@ -655,41 +655,112 @@ p { text-wrap: pretty; }
 .split__body p { color: var(--slate); margin-bottom: 16px; font-size: 1.02rem; }
 .split__body p:last-of-type { margin-bottom: 24px; }
 
-/* ---------- Troeven (dark band, image + USP list) ---------- */
+/* ---------- Troeven (bento mosaic: photo cell + varied USP cards) ---------- */
 .troeven-grid {
   display: grid;
-  gap: 36px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
-@media (min-width: 900px) {
-  .troeven-grid { grid-template-columns: 1fr 1.1fr; gap: 64px; }
-}
-.troeven-media img {
-  width: 100%;
-  border-radius: var(--radius-l);
+.troeven-cell { border-radius: var(--radius-l); }
+
+.troeven-photo {
+  position: relative;
+  overflow: hidden;
   box-shadow: var(--shadow-pop);
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
-.troeven-list {
+.troeven-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.troeven-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(16,27,46,0.92) 0%, rgba(16,27,46,0.32) 45%, transparent 72%);
+}
+.troeven-photo__caption {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+}
+.troeven-photo__caption::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sun);
+  flex-shrink: 0;
+}
+
+.troeven-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
 }
-.troeven-list li {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
+.troeven-card--lead {
+  background: linear-gradient(150deg, rgba(245,166,35,0.14), rgba(255,255,255,0.03));
+  border-color: rgba(245,166,35,0.24);
 }
-.troeven-list svg {
-  width: 26px;
-  height: 26px;
-  color: var(--sun);
+.troeven-chip {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-m);
+  background: rgba(255,255,255,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 3px;
 }
-.troeven-list h3 { font-size: 1.14rem; margin-bottom: 7px; color: #fff; }
-.troeven-list p { font-size: 0.95rem; color: rgba(255,255,255,0.62); }
+.troeven-card--lead .troeven-chip { background: rgba(245,166,35,0.2); }
+.troeven-chip svg { width: 24px; height: 24px; color: var(--sun); }
+.troeven-card--b .troeven-chip svg { color: var(--aqua); }
+.troeven-card--c .troeven-chip svg { color: var(--rinse-light); }
+.troeven-card h3 { font-size: 1.05rem; color: #fff; margin: 0; }
+.troeven-card--lead h3 { font-size: 1.3rem; }
+.troeven-card p { font-size: 0.94rem; line-height: 1.55; color: rgba(255,255,255,0.62); margin: 0; }
+.troeven-card--lead p { font-size: 1rem; max-width: 38ch; }
+
+@media (min-width: 720px) {
+  .troeven-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "photo photo"
+      "lead lead"
+      "b c";
+  }
+  .troeven-photo { grid-area: photo; aspect-ratio: 21 / 9; }
+  .troeven-card--lead { grid-area: lead; }
+  .troeven-card--b { grid-area: b; }
+  .troeven-card--c { grid-area: c; }
+}
+@media (min-width: 1080px) {
+  .troeven-grid {
+    grid-template-columns: 1.05fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 22px;
+    grid-template-areas:
+      "photo lead lead"
+      "photo b    c";
+  }
+  .troeven-photo { aspect-ratio: auto; height: 100%; }
+  .troeven-card--lead { flex-direction: row; align-items: center; gap: 24px; }
+  .troeven-card--lead .troeven-chip { margin-top: 0; }
+}
 
 /* ---------- Gallery (photo wall) ---------- */
 .gallery {
