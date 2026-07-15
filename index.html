@@ -217,92 +217,89 @@
         <h2>Contact</h2>
         <p>Vul het formulier in, we reageren zo snel mogelijk.</p>
       </div>
-      <div class="split" style="align-items:flex-start">
-        <div class="reveal">
-          <div class="form-card">
-            <!--
-              Formulier-koppeling: dit formulier verstuurt naar Formspree (gratis voor lage volumes).
-              Vervang YOUR_FORM_ID hieronder door een echte endpoint-ID van https://formspree.io
-              (gratis account aanmaken → nieuw formulier → ID kopiëren). Zonder aanpassing toont
-              het formulier na versturen enkel een lokale bevestiging, maar komt er geen e-mail aan.
-            -->
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-              <div class="form-row form-row--2">
-                <div class="field">
-                  <label for="name">Naam*</label>
-                  <input type="text" id="name" name="name" autocomplete="name" required>
-                  <span class="field__error">Vul uw naam in.</span>
-                </div>
-                <div class="field">
-                  <label for="phone">Telefoon</label>
-                  <input type="tel" id="phone" name="phone" autocomplete="tel">
-                </div>
+      <div class="contact-panel reveal">
+        <div class="form-card">
+          <span class="form-card__eyebrow">Offerte aanvragen</span>
+          <!--
+            Formulier-koppeling: dit formulier verstuurt naar Formspree (gratis voor lage volumes).
+            Vervang YOUR_FORM_ID hieronder door een echte endpoint-ID van https://formspree.io
+            (gratis account aanmaken → nieuw formulier → ID kopiëren). Zonder aanpassing toont
+            het formulier na versturen enkel een lokale bevestiging, maar komt er geen e-mail aan.
+          -->
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="name">Naam*</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+                <span class="field__error">Vul uw naam in.</span>
               </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="email">E-mail*</label>
-                  <input type="email" id="email" name="email" autocomplete="email" required>
-                  <span class="field__error">Vul een geldig e-mailadres in.</span>
-                </div>
+              <div class="field">
+                <label for="phone">Telefoon</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
               </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="service">Waarvoor neemt u contact op?</label>
-                  <select id="service" name="service">
-                    <option value="Terrasreiniging">Terrasreiniging</option>
-                    <option value="Opritreiniging">Opritreiniging</option>
-                    <option value="Reinigen van beglazing">Reinigen van beglazing</option>
-                    <option value="Bedrijfsterrein">Reiniging bedrijfsterrein</option>
-                    <option value="Andere">Andere / weet ik nog niet</option>
-                  </select>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="field__error">Vul een geldig e-mailadres in.</span>
               </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="message">Bericht*</label>
-                  <textarea id="message" name="message" required placeholder="Vertel ons kort over uw terras, oprit of ramen: grootte, materiaal, huidige staat."></textarea>
-                  <span class="field__error">Vertel ons kort wat u nodig heeft (min. 10 tekens).</span>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="service">Waarvoor neemt u contact op?</label>
+                <select id="service" name="service">
+                  <option value="Terrasreiniging">Terrasreiniging</option>
+                  <option value="Opritreiniging">Opritreiniging</option>
+                  <option value="Reinigen van beglazing">Reinigen van beglazing</option>
+                  <option value="Bedrijfsterrein">Reiniging bedrijfsterrein</option>
+                  <option value="Andere">Andere / weet ik nog niet</option>
+                </select>
               </div>
-              <div class="field field--check" style="margin-bottom:22px;">
-                <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">Ik geef toestemming om mijn gegevens te gebruiken om mijn aanvraag te beantwoorden.</label>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="message">Bericht*</label>
+                <textarea id="message" name="message" required placeholder="Vertel ons kort over uw terras, oprit of ramen: grootte, materiaal, huidige staat."></textarea>
+                <span class="field__error">Vertel ons kort wat u nodig heeft (min. 10 tekens).</span>
               </div>
-              <button type="submit" class="btn btn--primary btn--block">
-                Verstuur aanvraag
-                <svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
-              </button>
-              <div class="form-status" role="status" aria-live="polite"></div>
-            </form>
-          </div>
+            </div>
+            <div class="field field--check" style="margin-bottom:22px;">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">Ik geef toestemming om mijn gegevens te gebruiken om mijn aanvraag te beantwoorden.</label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">
+              Verstuur aanvraag
+              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+            </button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
         </div>
 
-        <div class="reveal">
-          <div class="info-card">
-            <h3>Contactgegevens</h3>
-            <div class="info-card__row">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg>
-              <address>Rozenstraat 2<br>9070 Destelbergen<br>Oost-Vlaanderen, België</address>
-            </div>
-            <div class="info-card__row">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
-              <a href="tel:+32496072039">0496 07 20 39</a>
-            </div>
-            <div class="info-card__row">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
-              <a href="mailto:info@glanzendschoon.be">info@glanzendschoon.be</a>
-            </div>
-            <div class="info-card__map">
-              <iframe src="https://www.google.com/maps?q=Rozenstraat+2,+9070+Destelbergen,+Belgi%C3%AB&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kaart met de locatie van Glanzend Schoon in Destelbergen"></iframe>
-            </div>
-            <div class="info-card__social">
-              <a href="https://www.facebook.com/profile.php?id=61576549491814" aria-label="Glanzend Schoon op Facebook" target="_blank" rel="noopener">
-                <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/glanzend_schoon/" aria-label="Glanzend Schoon op Instagram" target="_blank" rel="noopener">
-                <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
-              </a>
-            </div>
+        <div class="info-card">
+          <h3>Contactgegevens</h3>
+          <div class="info-card__row">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg>
+            <address>Rozenstraat 2<br>9070 Destelbergen<br>Oost-Vlaanderen, België</address>
+          </div>
+          <div class="info-card__row">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
+            <a href="tel:+32496072039">0496 07 20 39</a>
+          </div>
+          <div class="info-card__row">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
+            <a href="mailto:info@glanzendschoon.be">info@glanzendschoon.be</a>
+          </div>
+          <div class="info-card__map">
+            <iframe src="https://www.google.com/maps?q=Rozenstraat+2,+9070+Destelbergen,+Belgi%C3%AB&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kaart met de locatie van Glanzend Schoon in Destelbergen"></iframe>
+          </div>
+          <div class="info-card__social">
+            <a href="https://www.facebook.com/profile.php?id=61576549491814" aria-label="Glanzend Schoon op Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/glanzend_schoon/" aria-label="Glanzend Schoon op Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -313,6 +310,16 @@
 
 <footer class="site-footer">
   <div class="container">
+    <div class="footer__cta">
+      <div class="footer__cta-text">
+        <h3>Klaar voor een stralend resultaat?</h3>
+        <p>Vraag vandaag nog een gratis en vrijblijvende offerte aan.</p>
+      </div>
+      <a href="#contact" class="btn btn--primary">
+        Offerte aanvragen
+        <svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+      </a>
+    </div>
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="assets/img/logo.webp" alt="Glanzend Schoon">
