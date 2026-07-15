@@ -271,10 +271,7 @@ p { text-wrap: pretty; }
 .hero {
   overflow: hidden;
   position: relative;
-  background:
-    radial-gradient(680px 520px at 12% 0%, rgba(14, 168, 173, 0.16) 0%, transparent 70%),
-    radial-gradient(520px 440px at 94% 100%, rgba(245, 166, 35, 0.14) 0%, transparent 65%),
-    var(--ink);
+  background: var(--ink);
   color: #fff;
 }
 .hero__grid {
@@ -282,8 +279,9 @@ p { text-wrap: pretty; }
 }
 @media (min-width: 860px) {
   .hero__grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     min-height: min(720px, 84vh);
+    column-gap: clamp(24px, 4vw, 56px);
   }
 }
 .hero__intro {
@@ -291,31 +289,51 @@ p { text-wrap: pretty; }
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(44px, 8vw, 64px) 24px;
+  padding: clamp(52px, 9vw, 72px) 24px;
 }
 @media (min-width: 640px) { .hero__intro { padding-inline: 32px; } }
 @media (min-width: 1200px) {
-  .hero__intro { padding-inline-start: max(40px, calc((100vw - var(--container)) / 2 + 40px)); padding-inline-end: 48px; }
+  .hero__intro { padding-inline-start: max(40px, calc((100vw - var(--container)) / 2 + 40px)); padding-inline-end: 40px; }
+}
+.hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+  margin-bottom: 26px;
+}
+.hero__kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--sun);
 }
 .hero__intro h1 {
-  font-size: clamp(2.15rem, 3.4vw, 2.75rem);
+  font-size: clamp(2.3rem, 3.9vw, 3.3rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+@media (max-width: 479px) {
+  .hero__intro h1 { font-size: 1.75rem; }
 }
 .hero__intro h1 em {
   font-style: normal;
-  background: linear-gradient(100deg, var(--aqua) 10%, var(--sun) 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--sun);
+  text-shadow: 0 0 36px rgba(245, 166, 35, 0.45);
 }
 .hero__lede {
-  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
-  color: rgba(255, 255, 255, 0.68);
-  max-width: 38ch;
-  margin-bottom: 30px;
+  font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 36ch;
+  margin-bottom: 44px;
 }
 .hero__visual { position: relative; display: grid; grid-template-rows: 1fr auto; }
 .ba__caption {
