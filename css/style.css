@@ -492,6 +492,61 @@ p { text-wrap: pretty; }
 .split__body p { color: var(--slate); margin-bottom: 16px; font-size: 1.02rem; }
 .split__body p:last-of-type { margin-bottom: 24px; }
 
+/* ---------- Over ons (full-bleed photo banner + overlapping panel) ---------- */
+.over-ons {
+  position: relative;
+}
+.over-ons__media {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.over-ons__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+@media (min-width: 700px) {
+  .over-ons__media img { aspect-ratio: 16/9; }
+}
+.over-ons__panel {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-pop);
+  padding: 28px 24px;
+  margin: -56px 16px 0;
+  max-width: 560px;
+}
+@media (min-width: 700px) {
+  .over-ons__panel {
+    margin: -96px 0 0 40px;
+    padding: 40px 44px;
+  }
+}
+.over-ons-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rinse);
+  margin-bottom: 14px;
+}
+.over-ons__panel h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.over-ons__panel p {
+  color: var(--slate);
+  font-size: 1.02rem;
+  margin-bottom: 26px;
+}
+
 /* ---------- Troeven (dark band, image + USP list) ---------- */
 .troeven-grid {
   display: grid;
