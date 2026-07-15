@@ -188,14 +188,16 @@ p { text-wrap: pretty; }
 .btn--block { width: 100%; justify-content: center; }
 
 /* ---------- Header / nav ---------- */
+/* Solid ink masthead: merges with the dark hero at page-load, then reads as a
+   confident anchor bar once scrolled over lighter sections. Links use a mono
+   index numeral (echoing the Voor/Na tag treatment on the before/after slider)
+   with an amber underline reveal instead of a generic pill hover. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(244, 248, 251, 0.86);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid rgba(16, 27, 46, 0.07);
+  background: var(--ink);
+  border-bottom: 2px solid var(--rinse);
 }
 .nav {
   display: flex;
@@ -205,23 +207,52 @@ p { text-wrap: pretty; }
   padding-block: 14px;
 }
 .nav__logo { display: flex; align-items: center; flex-shrink: 0; }
-.nav__logo img { height: 34px; width: auto; }
+.nav__logo img { height: 30px; width: auto; filter: brightness(0) invert(1); }
 
 .nav__links {
   display: none;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
 }
 .nav__links a {
-  padding: 9px 15px;
-  border-radius: 999px;
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 10px 14px;
   font-weight: 500;
-  font-size: 0.96rem;
-  color: var(--slate);
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.66);
+  transition: color 0.2s var(--ease);
 }
-.nav__links a:hover { background: rgba(16, 27, 46, 0.06); color: var(--ink); }
-.nav__links a[aria-current="page"], .nav__links a.is-active { color: var(--rinse); font-weight: 600; background: var(--rinse-light); }
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 5px;
+  height: 2px;
+  background: var(--sun);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+.nav__links a:hover,
+.nav__links a[aria-current="page"],
+.nav__links a.is-active { color: #fff; }
+.nav__links a:hover::after,
+.nav__links a[aria-current="page"]::after,
+.nav__links a.is-active::after { transform: scaleX(1); }
+.nav__index {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--stone);
+  transition: color 0.2s var(--ease);
+}
+.nav__links a:hover .nav__index,
+.nav__links a[aria-current="page"] .nav__index,
+.nav__links a.is-active .nav__index { color: var(--sun); }
 
 .nav__actions { display: flex; align-items: center; gap: 10px; }
 .nav__actions .btn { padding: 11px 20px; font-size: 0.92rem; }
@@ -233,9 +264,10 @@ p { text-wrap: pretty; }
   justify-content: center;
   width: 42px;
   height: 42px;
-  border-radius: 12px;
-  border: 1.5px solid rgba(16, 27, 46, 0.15);
+  border-radius: var(--radius-s);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   background: transparent;
+  color: #fff;
 }
 .nav__toggle svg { width: 20px; height: 20px; }
 .nav__toggle .icon-close { display: none; }
@@ -245,20 +277,29 @@ p { text-wrap: pretty; }
 .nav__drawer {
   display: none;
   flex-direction: column;
-  gap: 4px;
-  padding: 10px 0 20px;
-  border-top: 1px solid rgba(16, 27, 46, 0.08);
+  gap: 2px;
+  padding: 6px 0 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .nav__drawer.is-open { display: flex; }
 .nav__drawer a {
-  padding: 13px 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  padding: 14px 6px;
   font-size: 1.05rem;
   font-weight: 500;
-  color: var(--ink);
-  border-bottom: 1px solid rgba(16, 27, 46, 0.06);
+  color: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.nav__drawer a.is-active { color: var(--rinse); font-weight: 600; }
-.nav__drawer .btn { margin-top: 12px; }
+.nav__drawer a.is-active { color: #fff; }
+.nav__drawer a.is-active .nav__index { color: var(--sun); }
+.nav__drawer .nav__index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--stone);
+}
+.nav__drawer .btn { margin-top: 14px; }
 
 @media (min-width: 860px) {
   .nav__links { display: flex; }
