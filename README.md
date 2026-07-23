@@ -33,3 +33,4 @@ en open `http://localhost:8000`.
 ## Hosting
 
 De site is 100% statisch (HTML/CSS/JS) en kan zonder aanpassing op elke gewone webhost, Netlify, Vercel of GitHub Pages geplaatst worden — gewoon alle bestanden uploaden.
+# Glanzendschoon1
