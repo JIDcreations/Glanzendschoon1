@@ -1,24 +1,21 @@
 /* ==========================================================================
    Glanzend Schoon: design system
-   Tokens: Ink #101B2E, Mist #E2E4F2 (client's pale blue), Rinse #415F9D (client brand blue), Sun #F5A623, Stone #93A2B4, Slate #45566B
+   5-color brand palette: Primary #415F9D, Soft background #E2E4F2,
+   Accent #73CFC6, White #FFFFFF, Text #182238. Muted/secondary text and
+   subtle borders are opacity variants of Text (--ink-rgb), not new hues.
    Display: Bricolage Grotesque · Body: IBM Plex Sans · Utility: IBM Plex Mono
    ========================================================================== */
 
 :root {
-  --ink: #101b2e;
-  --mist: #f4f4f8;
+  --ink: #182238;
+  --ink-rgb: 24, 34, 56;
+  --mist: #ffffff;
   --mist-dim: #e2e4f2;
   --paper: #ffffff;
   --rinse: #415f9d;
-  --rinse-dark: #1f2f50;
+  --rinse-dark: #182238;
   --rinse-light: #e2e4f2;
-  --sun: #f5a623;
-  --sun-light: #fdf0dc;
-  --aqua: #0ea8ad;
-  --aqua-light: #e0f6f5;
-  --stone: #93a2b4;
-  --stone-light: #dce6ee;
-  --slate: #45566b;
+  --accent: #73cfc6;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
@@ -28,9 +25,9 @@
   --radius-s: 10px;
   --radius-m: 18px;
   --radius-l: 28px;
-  --shadow-card: 0 2px 4px rgba(16, 27, 46, 0.05), 0 18px 40px -16px rgba(16, 27, 46, 0.22);
-  --shadow-pop: 0 30px 70px -22px rgba(16, 27, 46, 0.4);
-  --shadow-lift: 0 8px 20px -8px rgba(16, 27, 46, 0.3);
+  --shadow-card: 0 2px 4px rgba(24, 34, 56, 0.05), 0 18px 40px -16px rgba(24, 34, 56, 0.22);
+  --shadow-pop: 0 30px 70px -22px rgba(24, 34, 56, 0.4);
+  --shadow-lift: 0 8px 20px -8px rgba(24, 34, 56, 0.3);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -79,9 +76,12 @@ h1, h2, h3, h4 {
 }
 p { text-wrap: pretty; }
 
+/* Two-tone ring (white, then dark text color) instead of a single accent
+   outline, so focus stays visible on both the dark sections and the light
+   ones without needing a 6th color. */
 :focus-visible {
-  outline: 3px solid var(--sun);
-  outline-offset: 3px;
+  outline: 3px solid #fff;
+  box-shadow: 0 0 0 6px var(--ink);
   border-radius: 4px;
 }
 
@@ -115,7 +115,7 @@ p { text-wrap: pretty; }
   margin-bottom: 16px;
 }
 .section-head p {
-  color: var(--slate);
+  color: rgba(var(--ink-rgb), 0.72);
   font-size: 1.1rem;
   max-width: 54ch;
 }
@@ -157,20 +157,20 @@ p { text-wrap: pretty; }
 .btn--primary {
   background: var(--rinse);
   color: #fff;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 14px 30px -12px rgba(15, 37, 71, 0.65);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 14px 30px -12px rgba(24, 34, 56, 0.65);
 }
 .btn--primary:hover {
   background: var(--rinse-dark);
   transform: translateY(-2px);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 20px 36px -12px rgba(15, 37, 71, 0.7);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 20px 36px -12px rgba(24, 34, 56, 0.7);
 }
 
 .btn--ghost {
   background: transparent;
-  border-color: rgba(16, 27, 46, 0.18);
+  border-color: rgba(var(--ink-rgb), 0.18);
   color: var(--ink);
 }
-.btn--ghost:hover { border-color: var(--ink); background: rgba(16, 27, 46, 0.04); transform: translateY(-2px); }
+.btn--ghost:hover { border-color: var(--ink); background: rgba(var(--ink-rgb), 0.04); transform: translateY(-2px); }
 
 .btn--on-dark {
   background: transparent;
@@ -183,15 +183,14 @@ p { text-wrap: pretty; }
   background: #fff;
   color: var(--ink);
 }
-.btn--light:hover { background: var(--sun-light); transform: translateY(-2px); }
+.btn--light:hover { background: var(--mist-dim); transform: translateY(-2px); }
 
 .btn--block { width: 100%; justify-content: center; }
 
 /* ---------- Header / nav ---------- */
-/* Solid ink masthead: merges with the dark hero at page-load, then reads as a
-   confident anchor bar once scrolled over lighter sections. Links use a mono
-   index numeral (echoing the Voor/Na tag treatment on the before/after slider)
-   with an amber underline reveal instead of a generic pill hover. */
+/* Solid dark masthead: merges with the dark hero at page-load, then reads as
+   a confident anchor bar once scrolled over lighter sections. Nav links use
+   an accent-colored underline reveal instead of a generic pill hover. */
 .site-header {
   position: sticky;
   top: 0;
@@ -231,7 +230,7 @@ p { text-wrap: pretty; }
   right: 14px;
   bottom: 5px;
   height: 2px;
-  background: var(--sun);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s var(--ease);
@@ -330,7 +329,7 @@ p { text-wrap: pretty; }
   .hero__intro h1 { font-size: 1.75rem; }
 }
 .hero__intro h1 .hero__accent {
-  color: var(--sun);
+  color: var(--accent);
 }
 .hero__lede {
   font-size: clamp(1.05rem, 1.4vw, 1.15rem);
@@ -350,7 +349,7 @@ p { text-wrap: pretty; }
   margin-top: 12px;
   padding-inline: 4px;
   font-size: 0.82rem;
-  color: var(--stone);
+  color: rgba(255, 255, 255, 0.6);
 }
 @media (min-width: 860px) {
   .ba__caption { padding-inline-start: 8px; }
@@ -383,7 +382,7 @@ p { text-wrap: pretty; }
     height: auto;
     aspect-ratio: auto;
     border-radius: var(--radius-l) 0 0 var(--radius-l);
-    box-shadow: -32px 0 60px -28px rgba(31, 68, 131, 0.45);
+    box-shadow: -32px 0 60px -28px rgba(65, 95, 157, 0.45);
   }
 }
 .ba__img {
@@ -408,7 +407,7 @@ p { text-wrap: pretty; }
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(16, 27, 46, 0.55);
+  background: rgba(var(--ink-rgb), 0.55);
   color: #fff;
   backdrop-filter: blur(6px);
   pointer-events: none;
@@ -425,7 +424,7 @@ p { text-wrap: pretty; }
   background: #fff;
   transform: translateX(-50%);
   cursor: ew-resize;
-  box-shadow: 0 0 0 1px rgba(16, 27, 46, 0.15);
+  box-shadow: 0 0 0 1px rgba(var(--ink-rgb), 0.15);
 }
 .ba__knob {
   position: absolute;
@@ -440,7 +439,7 @@ p { text-wrap: pretty; }
   align-items: center;
   justify-content: center;
   gap: 4px;
-  box-shadow: 0 8px 20px -6px rgba(16, 27, 46, 0.5);
+  box-shadow: 0 8px 20px -6px rgba(var(--ink-rgb), 0.5);
 }
 .ba__knob svg { width: 16px; height: 16px; color: var(--ink); }
 
@@ -477,7 +476,7 @@ p { text-wrap: pretty; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to top, rgba(16, 27, 46, 0.92) 0%, rgba(16, 27, 46, 0.42) 48%, rgba(16, 27, 46, 0) 78%);
+  background: linear-gradient(to top, rgba(var(--ink-rgb), 0.92) 0%, rgba(var(--ink-rgb), 0.42) 48%, rgba(var(--ink-rgb), 0) 78%);
 }
 .service-card__body {
   position: relative;
@@ -523,7 +522,7 @@ p { text-wrap: pretty; }
   letter-spacing: -0.02em;
   margin-bottom: 18px;
 }
-.split__body p { color: var(--slate); margin-bottom: 16px; font-size: 1.02rem; }
+.split__body p { color: rgba(var(--ink-rgb), 0.72); margin-bottom: 16px; font-size: 1.02rem; }
 .split__body p:last-of-type { margin-bottom: 24px; }
 
 /* ---------- Over ons (full-bleed photo banner + overlapping panel) ---------- */
@@ -567,7 +566,7 @@ p { text-wrap: pretty; }
   margin-bottom: 16px;
 }
 .over-ons__panel p {
-  color: var(--slate);
+  color: rgba(var(--ink-rgb), 0.72);
   font-size: 1.02rem;
   margin-bottom: 26px;
 }
@@ -598,7 +597,7 @@ p { text-wrap: pretty; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(16,27,46,0.92) 0%, rgba(16,27,46,0.32) 45%, transparent 72%);
+  background: linear-gradient(to top, rgba(var(--ink-rgb),0.92) 0%, rgba(var(--ink-rgb),0.32) 45%, transparent 72%);
 }
 .troeven-photo__caption {
   position: absolute;
@@ -619,7 +618,7 @@ p { text-wrap: pretty; }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--sun);
+  background: var(--accent);
   flex-shrink: 0;
 }
 
@@ -651,9 +650,7 @@ p { text-wrap: pretty; }
   justify-content: center;
   flex-shrink: 0;
 }
-.troeven-chip svg { width: 22px; height: 22px; color: var(--sun); }
-.troeven-card--b .troeven-chip svg { color: var(--aqua); }
-.troeven-card--c .troeven-chip svg { color: var(--rinse-light); }
+.troeven-chip svg { width: 22px; height: 22px; color: var(--accent); }
 .troeven-card h3 { font-size: 1.02rem; color: #fff; margin-bottom: 4px; }
 .troeven-card p { font-size: 0.9rem; line-height: 1.5; color: rgba(255,255,255,0.62); margin: 0; }
 
@@ -678,10 +675,10 @@ p { text-wrap: pretty; }
   border-radius: var(--radius-m);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 0 0 var(--aqua);
+  box-shadow: 0 0 0 0 var(--accent);
   transition: box-shadow 0.3s var(--ease);
 }
-.gallery__item:hover { box-shadow: 0 0 0 3px var(--aqua); }
+.gallery__item:hover { box-shadow: 0 0 0 3px var(--accent); }
 .gallery__item img {
   width: 100%;
   height: 100%;
@@ -706,7 +703,7 @@ p { text-wrap: pretty; }
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(16, 27, 46, 0.55);
+  background: rgba(var(--ink-rgb), 0.55);
   color: #fff;
   backdrop-filter: blur(6px);
   pointer-events: none;
@@ -725,7 +722,7 @@ p { text-wrap: pretty; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--rinse), var(--aqua));
+  background: linear-gradient(90deg, var(--rinse), var(--accent));
 }
 .footer__cta {
   display: flex;
@@ -775,7 +772,7 @@ p { text-wrap: pretty; }
 }
 .footer__col ul { display: flex; flex-direction: column; gap: 11px; }
 .footer__col a, .footer__col address { font-size: 0.94rem; font-style: normal; color: rgba(255,255,255,0.82); }
-.footer__col a:hover { color: var(--sun); }
+.footer__col a:hover { color: var(--accent); }
 .footer__col address { line-height: 1.6; }
 
 .footer__bottom {
@@ -809,9 +806,9 @@ p { text-wrap: pretty; }
 @media (min-width: 560px) { .form-row--2 { grid-template-columns: 1fr 1fr; } }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field label { font-size: 0.9rem; font-weight: 600; }
-.field .hint { font-weight: 400; color: var(--stone); font-size: 0.82rem; }
+.field .hint { font-weight: 400; color: rgba(var(--ink-rgb), 0.45); font-size: 0.82rem; }
 .field input, .field select, .field textarea {
-  border: 1.5px solid var(--stone-light);
+  border: 1.5px solid rgba(var(--ink-rgb), 0.16);
   background: #fff;
   border-radius: var(--radius-s);
   padding: 13px 15px;
@@ -839,7 +836,7 @@ p { text-wrap: pretty; }
   gap: 10px;
 }
 .field--check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rinse); }
-.field--check label { font-weight: 400; font-size: 0.88rem; color: var(--slate); }
+.field--check label { font-weight: 400; font-size: 0.88rem; color: rgba(var(--ink-rgb), 0.72); }
 
 .form-status {
   margin-top: 16px;
@@ -867,9 +864,9 @@ p { text-wrap: pretty; }
 }
 .info-card h3 { font-size: 1.3rem; }
 .info-card__row { display: flex; gap: 14px; align-items: flex-start; }
-.info-card__row svg { width: 21px; height: 21px; color: var(--sun); flex-shrink: 0; margin-top: 2px; }
+.info-card__row svg { width: 21px; height: 21px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
 .info-card__row a, .info-card__row address { font-style: normal; font-size: 0.97rem; color: rgba(255,255,255,0.88); line-height: 1.5; }
-.info-card__row a:hover { color: var(--sun); }
+.info-card__row a:hover { color: var(--accent); }
 .info-card__map { border-radius: var(--radius-m); overflow: hidden; margin-top: 4px; }
 .info-card__map iframe { width: 100%; height: 220px; border: 0; filter: grayscale(0.3) contrast(1.05); }
 .info-card__social { display: flex; gap: 10px; }
