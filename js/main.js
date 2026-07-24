@@ -110,6 +110,48 @@
     }
   });
 
+  /* ---------- Troeven carousel ---------- */
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector("[data-carousel-track]");
+    const prevBtn = carousel.querySelector("[data-carousel-prev]");
+    const nextBtn = carousel.querySelector("[data-carousel-next]");
+    if (!track) return;
+
+    const slideStep = () => {
+      const slide = track.querySelector(".carousel__slide");
+      if (!slide) return 0;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return slide.getBoundingClientRect().width + gap;
+    };
+
+    const advance = (dir) => {
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      const atStart = track.scrollLeft <= 4;
+      if (dir > 0 && atEnd) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else if (dir < 0 && atStart) {
+        track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: dir * slideStep(), behavior: "smooth" });
+      }
+    };
+
+    nextBtn?.addEventListener("click", () => advance(1));
+    prevBtn?.addEventListener("click", () => advance(-1));
+
+    if (prefersReducedMotion) return;
+
+    let paused = false;
+    carousel.addEventListener("pointerenter", () => { paused = true; });
+    carousel.addEventListener("pointerleave", () => { paused = false; });
+    carousel.addEventListener("focusin", () => { paused = true; });
+    carousel.addEventListener("focusout", () => { paused = false; });
+
+    setInterval(() => {
+      if (!paused) advance(1);
+    }, 4000);
+  });
+
   /* ---------- Contact form ---------- */
   const form = document.querySelector("#contact-form");
   if (form) {

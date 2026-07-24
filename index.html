@@ -27,11 +27,11 @@
       <img src="assets/img/logo.webp" alt="Glanzend Schoon">
     </a>
     <nav class="nav__links" aria-label="Hoofdmenu">
-      <a href="#diensten" data-nav>Diensten</a>
-      <a href="#troeven" data-nav>Troeven</a>
-      <a href="#galerij" data-nav>Galerij</a>
+      <a href="#home" data-nav>Home</a>
       <a href="#over-ons" data-nav>Over ons</a>
-      <a href="#contact" data-nav>Contact</a>
+      <a href="#diensten" data-nav>Diensten</a>
+      <a href="#werkwijze" data-nav>Werkwijze</a>
+      <a href="#contact" data-nav>Neem contact op</a>
     </nav>
     <div class="nav__actions">
       <a href="#contact" class="btn btn--primary nav__cta">Vraag uw offerte aan</a>
@@ -43,11 +43,11 @@
   </div>
   <div class="container">
     <nav class="nav__drawer" aria-label="Mobiel menu">
-      <a href="#diensten" data-nav>Diensten</a>
-      <a href="#troeven" data-nav>Troeven</a>
-      <a href="#galerij" data-nav>Galerij</a>
+      <a href="#home" data-nav>Home</a>
       <a href="#over-ons" data-nav>Over ons</a>
-      <a href="#contact" data-nav>Contact</a>
+      <a href="#diensten" data-nav>Diensten</a>
+      <a href="#werkwijze" data-nav>Werkwijze</a>
+      <a href="#contact" data-nav>Neem contact op</a>
       <a href="#contact" class="btn btn--primary btn--block">Vraag uw offerte aan</a>
     </nav>
   </div>
@@ -56,7 +56,8 @@
 <main id="top">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
+    <div class="hero__bg" style="background-image:url('assets/img/terras-wide.webp')" aria-hidden="true"></div>
     <div class="hero__grid">
       <div class="hero__intro reveal">
         <h1>Een <span class="hero__accent">glanzend</span> resultaat,<br>elke keer weer.</h1>
@@ -89,80 +90,154 @@
     </div>
   </section>
 
-  <!-- Diensten -->
-  <section class="section section--paper" id="diensten">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Van dof en vervuild naar glanzend schoon</h2>
-        <p>Drie gespecialiseerde diensten, elk op maat van het oppervlak.</p>
+  <!-- Troeven: photo carousel, no heading (per client request) -->
+  <section class="section section--ink" id="troeven">
+    <div class="carousel carousel--bleed reveal" data-carousel>
+      <div class="carousel__track" data-carousel-track>
+        <div class="carousel__slide"><img src="assets/img/troeven-action.webp" alt="Medewerker van Glanzend Schoon reinigt een terras met hogedruk en schuim" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/terras-action.webp" alt="Terras tijdens reiniging met schuim" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/oprit-action.webp" alt="Natte oprit met keitjes na reiniging" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/terras-foam.webp" alt="Terras behandeld met reinigingsschuim" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/beglazing-detail.webp" alt="Close-up van een streeploos gereinigde glazen schuifwand" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/oprit-clean.webp" alt="Opgefriste oprit na professionele reiniging" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/oprit-wide.webp" alt="Opgefriste oprit met keitjes" loading="lazy"></div>
+        <div class="carousel__slide"><img src="assets/img/beglazing-wide.webp" alt="Veranda met streeploos gereinigde beglazing" loading="lazy"></div>
       </div>
-      <div class="services">
-        <article class="service-card reveal">
-          <img src="assets/img/terras-wide.webp" alt="Volledig gereinigd natuurstenen terras" loading="lazy">
-          <div class="service-card__body">
-            <h3>Terrasreiniging</h3>
-            <p>Vuil, mos en aanslag verwijderd, met behoud van kleur en structuur.</p>
+      <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Vorige foto" data-carousel-prev>
+        <svg viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>
+      </button>
+      <button class="carousel__btn carousel__btn--next" type="button" aria-label="Volgende foto" data-carousel-next>
+        <svg viewBox="0 0 256 256" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg>
+      </button>
+    </div>
+    <div class="container">
+      <div class="troeven-cards">
+        <article class="troeven-card troeven-card--a reveal">
+          <span class="troeven-chip" aria-hidden="true">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></svg>
+          </span>
+          <div>
+            <h3>Klantgerichtheid</h3>
+            <p>We stemmen alles af op uw situatie.</p>
           </div>
         </article>
-        <article class="service-card reveal">
-          <img src="assets/img/oprit-hero.webp" alt="Oprit tijdens hogedrukreiniging" loading="lazy">
-          <div class="service-card__body">
-            <h3>Opritreiniging</h3>
-            <p>Olievlekken, onkruid en jarenlange vervuiling verdwijnen tot in de voegen.</p>
+        <article class="troeven-card troeven-card--b reveal">
+          <span class="troeven-chip" aria-hidden="true">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>
+          </span>
+          <div>
+            <h3>Betrouwbaarheid</h3>
+            <p>Heldere afspraken, geen verrassingen.</p>
           </div>
         </article>
-        <article class="service-card reveal">
-          <img src="assets/img/beglazing-interior.webp" alt="Streeploos gereinigde glazen veranda" loading="lazy">
-          <div class="service-card__body">
-            <h3>Reinigen van beglazing</h3>
-            <p>Streeploze ramen, kozijnen en vensterbanken, eenmalig of periodiek.</p>
+        <article class="troeven-card troeven-card--c reveal">
+          <span class="troeven-chip" aria-hidden="true">
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,96A88,88,0,1,0,72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96ZM168,227.06l-36.43-18.21a8,8,0,0,0-7.16,0L88,227.06V174.37a87.89,87.89,0,0,0,80,0ZM128,152A56,56,0,1,0,72,96,56.06,56.06,0,0,0,128,152Zm0-96A40,40,0,1,1,88,96,40,40,0,0,1,128,56Z"/></svg>
+          </span>
+          <div>
+            <h3>Kwaliteit</h3>
+            <p>Oog voor detail, van start tot eind.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Troeven -->
-  <section class="section section--ink" id="troeven">
+  <!-- Over ons -->
+  <section class="section section--paper" id="over-ons">
+    <div class="container">
+      <div class="over-ons reveal">
+        <div class="over-ons__media">
+          <img src="assets/img/beglazing-interior.webp" alt="Kraakheldere glazen veranda na professionele reiniging" loading="lazy">
+        </div>
+        <div class="over-ons__panel">
+          <h2>Een jong bedrijf, een duidelijke missie</h2>
+          <p><strong>Glanzend Schoon</strong> werd opgericht in 2025 en startte met het professioneel reinigen van opritten en terrassen. Intussen hebben we ons dienstenaanbod uitgebreid met het reinigen van ramen, veranda's en zonnepanelen, zodat we onze klanten nog beter van dienst kunnen zijn.</p>
+          <p>Wij willen hét aanspreekpunt zijn voor iedereen die zijn woning en tuin schoon, verzorgd en in topconditie wil houden. Met oog voor kwaliteit, betrouwbaarheid en een persoonlijke aanpak zorgen we ervoor dat jouw exterieur weer straalt.</p>
+          <a href="#contact" class="btn btn--ghost">
+            Neem contact op
+            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diensten -->
+  <section class="section section--dim" id="diensten">
     <div class="container">
       <div class="section-head reveal">
-        <h2>Onze troeven</h2>
-        <p>Wat ons onderscheidt in elk project.</p>
+        <h2>Van dof en vervuild naar glanzend schoon</h2>
+        <p>Vijf gespecialiseerde diensten, elk op maat van het oppervlak.</p>
       </div>
-      <div class="troeven-grid">
-        <div class="troeven-photo reveal">
-          <img src="assets/img/troeven-action.webp" alt="Medewerker van Glanzend Schoon reinigt een terras met hogedruk en schuim" loading="lazy">
-          <span class="troeven-photo__caption">Aan het werk</span>
-        </div>
-        <div class="troeven-cards">
-          <article class="troeven-card troeven-card--a reveal">
-            <span class="troeven-chip" aria-hidden="true">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></svg>
-            </span>
-            <div>
-              <h3>Klantgerichtheid</h3>
-              <p>We stemmen alles af op uw situatie.</p>
-            </div>
-          </article>
-          <article class="troeven-card troeven-card--b reveal">
-            <span class="troeven-chip" aria-hidden="true">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>
-            </span>
-            <div>
-              <h3>Betrouwbaarheid</h3>
-              <p>Heldere afspraken, geen verrassingen.</p>
-            </div>
-          </article>
-          <article class="troeven-card troeven-card--c reveal">
-            <span class="troeven-chip" aria-hidden="true">
-              <svg viewBox="0 0 256 256" fill="currentColor"><path d="M216,96A88,88,0,1,0,72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96ZM168,227.06l-36.43-18.21a8,8,0,0,0-7.16,0L88,227.06V174.37a87.89,87.89,0,0,0,80,0ZM128,152A56,56,0,1,0,72,96,56.06,56.06,0,0,0,128,152Zm0-96A40,40,0,1,1,88,96,40,40,0,0,1,128,56Z"/></svg>
-            </span>
-            <div>
-              <h3>Kwaliteit</h3>
-              <p>Oog voor detail, van start tot eind.</p>
-            </div>
-          </article>
-        </div>
+      <div class="services">
+        <article class="service-card reveal" tabindex="0">
+          <img src="assets/img/oprit-hero.webp" alt="Opritten en terrassen tijdens hogedrukreiniging" loading="lazy">
+          <div class="service-card__body">
+            <h3>Opritten &amp; Terrassen</h3>
+            <p>Mossen, algen en vuil verwijderen voor een frisse en verzorgde uitstraling.</p>
+          </div>
+        </article>
+        <article class="service-card reveal" tabindex="0">
+          <img src="assets/img/terras-wide.webp" alt="Reiniging van zonnepanelen" loading="lazy">
+          <div class="service-card__body">
+            <h3>Zonnepanelen</h3>
+            <p>Optimaal rendement en lange levensduur.</p>
+          </div>
+        </article>
+        <article class="service-card reveal" tabindex="0">
+          <img src="assets/img/beglazing-hero.webp" alt="Medewerker reinigt een raam met een wisser" loading="lazy">
+          <div class="service-card__body">
+            <h3>Ramen</h3>
+            <p>Heldere ramen en verzorgde uitstraling.</p>
+          </div>
+        </article>
+        <article class="service-card reveal" tabindex="0">
+          <img src="assets/img/beglazing-interior.webp" alt="Streeploos gereinigde glazen veranda" loading="lazy">
+          <div class="service-card__body">
+            <h3>Veranda's &amp; overkappingen</h3>
+            <p>Geniet optimaal van een propere buitenruimte.</p>
+          </div>
+        </article>
+        <article class="service-card reveal" tabindex="0">
+          <img src="assets/img/oprit-split.webp" alt="Bedrijfsterrein tijdens reiniging" loading="lazy">
+          <div class="service-card__body">
+            <h3>Bedrijfsterreinen</h3>
+            <p>Reinigen van parkings, opritten, laadruimtes en verwijderen van onkruid.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Werkwijze -->
+  <section class="section section--paper" id="werkwijze">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Onze werkwijze</h2>
+        <p>In vier duidelijke stappen naar een stralend resultaat.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="step__number">1</span>
+          <h3>Vraag een offerte aan</h3>
+          <p>Neem contact met ons op en vraag een offerte aan. Wij komen graag eens langs om uitleg te geven en een exacte prijs te bepalen.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__number">2</span>
+          <h3>Kies uw datum</h3>
+          <p>Bij goedkeuring van de offerte spreken we samen een gepast moment af.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__number">3</span>
+          <h3>De reiniging</h3>
+          <p>Op het geplande moment komen wij af en zorgen wij voor een grondige reiniging en/of onderhoud.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__number">4</span>
+          <h3>Resultaat</h3>
+          <p>Nadien geniet u ten volle van uw propere buitenruimte.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -191,27 +266,8 @@
     </div>
   </section>
 
-  <!-- Over ons -->
-  <section class="section section--paper" id="over-ons">
-    <div class="container">
-      <div class="over-ons reveal">
-        <div class="over-ons__media">
-          <img src="assets/img/beglazing-interior.webp" alt="Kraakheldere glazen veranda na professionele reiniging" loading="lazy">
-        </div>
-        <div class="over-ons__panel">
-          <h2>Een jong bedrijf, een duidelijke missie</h2>
-          <p>Vanuit Destelbergen laten we woningen en bedrijfspanden in heel Oost-Vlaanderen opnieuw stralen. Persoonlijk contact, heldere afspraken en oog voor elk detail.</p>
-          <a href="#contact" class="btn btn--ghost">
-            Contact
-            <svg viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
-  <section class="section section--dim" id="contact">
+  <section class="section section--paper" id="contact">
     <div class="container">
       <div class="section-head reveal">
         <h2>Contact</h2>
@@ -335,18 +391,21 @@
       <div class="footer__col">
         <h3>Navigatie</h3>
         <ul>
-          <li><a href="#diensten">Diensten</a></li>
-          <li><a href="#galerij">Galerij</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="#over-ons">Over ons</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#diensten">Diensten</a></li>
+          <li><a href="#werkwijze">Werkwijze</a></li>
+          <li><a href="#contact">Neem contact op</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h3>Diensten</h3>
         <ul>
-          <li><a href="#diensten">Terrasreiniging</a></li>
-          <li><a href="#diensten">Opritreiniging</a></li>
-          <li><a href="#diensten">Reinigen van beglazing</a></li>
+          <li><a href="#diensten">Opritten &amp; Terrassen</a></li>
+          <li><a href="#diensten">Zonnepanelen</a></li>
+          <li><a href="#diensten">Ramen</a></li>
+          <li><a href="#diensten">Veranda's &amp; overkappingen</a></li>
+          <li><a href="#diensten">Bedrijfsterreinen</a></li>
         </ul>
       </div>
       <div class="footer__col">
