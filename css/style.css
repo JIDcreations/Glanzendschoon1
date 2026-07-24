@@ -533,12 +533,33 @@ p { text-wrap: pretty; }
 @media (min-width: 900px) {
   .split { grid-template-columns: 1fr 1fr; gap: 64px; }
 }
+.split__media {
+  position: relative;
+}
 .split__media img {
   width: 100%;
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
   aspect-ratio: 4/5;
   object-fit: cover;
+}
+@media (min-width: 700px) {
+  .split__media img { aspect-ratio: 4/3; }
+}
+.split__badge {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(var(--ink-rgb), 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
 }
 .split__eyebrow-free h2 {
   font-size: clamp(2rem, 3.4vw, 2.85rem);
@@ -548,52 +569,6 @@ p { text-wrap: pretty; }
 }
 .split__body p { color: rgba(var(--ink-rgb), 0.72); margin-bottom: 16px; font-size: 1.02rem; }
 .split__body p:last-of-type { margin-bottom: 24px; }
-
-/* ---------- Over ons (full-bleed photo banner + overlapping panel) ---------- */
-.over-ons {
-  position: relative;
-}
-.over-ons__media {
-  border-radius: var(--radius-l);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-.over-ons__media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-}
-@media (min-width: 700px) {
-  .over-ons__media img { aspect-ratio: 16/9; }
-}
-.over-ons__panel {
-  position: relative;
-  z-index: 1;
-  background: var(--paper);
-  border-radius: var(--radius-l);
-  box-shadow: var(--shadow-pop);
-  padding: 28px 24px;
-  margin: -56px 16px 0;
-  max-width: 560px;
-}
-@media (min-width: 700px) {
-  .over-ons__panel {
-    margin: -96px 0 0 40px;
-    padding: 40px 44px;
-  }
-}
-.over-ons__panel h2 {
-  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-}
-.over-ons__panel p {
-  color: rgba(var(--ink-rgb), 0.72);
-  font-size: 1.02rem;
-  margin-bottom: 26px;
-}
 
 /* ---------- Carousel (troeven photo carrousel) ---------- */
 .carousel {
@@ -679,14 +654,25 @@ p { text-wrap: pretty; }
     content: "";
     position: absolute;
     top: 26px;
-    left: 12.5%;
-    right: 12.5%;
+    /* Column center = half a column's width in from each edge. With 4 equal
+       columns and 3 fixed gaps, that's (100% - 3 * gap) / 4 / 2 — expressed
+       as a calc() so it lines up with the circles at any container width,
+       instead of guessing a flat 12.5% that ignored the gap. */
+    left: calc((100% - 3 * 24px) / 8);
+    right: calc((100% - 3 * 24px) / 8);
     height: 2px;
     background: rgba(var(--ink-rgb), 0.12);
     z-index: 0;
   }
 }
-.step { position: relative; z-index: 1; }
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .step__number {
   display: inline-flex;
   align-items: center;
@@ -701,6 +687,7 @@ p { text-wrap: pretty; }
   font-size: 1.3rem;
   margin-bottom: 18px;
   box-shadow: var(--shadow-lift);
+  flex-shrink: 0;
 }
 .step h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .step p { color: rgba(var(--ink-rgb), 0.7); font-size: 0.95rem; max-width: 34ch; }
