@@ -353,16 +353,7 @@ p { text-wrap: pretty; }
   flex-wrap: wrap;
   gap: 14px 20px;
 }
-.hero__visual { position: relative; display: grid; grid-template-rows: 1fr auto; }
-.ba__caption {
-  margin-top: 12px;
-  padding-inline: 4px;
-  font-size: 0.82rem;
-  color: rgba(var(--ink-rgb), 0.68);
-}
-@media (min-width: 860px) {
-  .ba__caption { padding-inline-start: 8px; }
-}
+.hero__visual { position: relative; }
 
 /* ---------- Before / after slider ---------- */
 .ba {
@@ -404,23 +395,6 @@ p { text-wrap: pretty; }
   z-index: 2;
   clip-path: inset(0 0 0 50%);
 }
-.ba__tag {
-  position: absolute;
-  bottom: 16px;
-  z-index: 3;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(var(--ink-rgb), 0.55);
-  color: #fff;
-  backdrop-filter: blur(6px);
-  pointer-events: none;
-}
-.ba__tag--before { left: 16px; }
-.ba__tag--after { right: 16px; }
 .ba__handle {
   position: absolute;
   top: 0;
@@ -569,21 +543,6 @@ p { text-wrap: pretty; }
 }
 @media (min-width: 700px) {
   .split__media img { aspect-ratio: 4/3; }
-}
-.split__badge {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  z-index: 1;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(var(--ink-rgb), 0.55);
-  color: #fff;
-  backdrop-filter: blur(6px);
 }
 .split__eyebrow-free h2 {
   font-size: clamp(2rem, 3.4vw, 2.85rem);
@@ -786,22 +745,6 @@ p { text-wrap: pretty; }
 .gallery__item--tall { grid-row: span 2; }
 .gallery__item--wide { grid-column: span 2; }
 
-.gallery__caption {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  z-index: 2;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(var(--ink-rgb), 0.55);
-  color: #fff;
-  backdrop-filter: blur(6px);
-  pointer-events: none;
-}
 
 /* ---------- Footer ---------- */
 .site-footer {
