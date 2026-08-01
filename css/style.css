@@ -450,16 +450,15 @@ p { text-wrap: pretty; }
 }
 .ba__knob svg { width: 16px; height: 16px; color: var(--ink); }
 
-/* ---------- Service cards (equal-weight full-photo cards) ---------- */
+/* ---------- Service cards (equal-weight tiles, wraps to a centered last row) ---------- */
 .services {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
-@media (min-width: 560px) {
-  .services { grid-template-columns: repeat(2, 1fr); }
-}
 @media (min-width: 780px) {
-  .services { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .services { gap: 24px; }
 }
 
 .service-card {
@@ -469,7 +468,14 @@ p { text-wrap: pretty; }
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
   aspect-ratio: 3 / 4;
+  flex: 0 1 260px;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+@media (min-width: 560px) {
+  .service-card { flex-basis: calc(50% - 10px); }
+}
+@media (min-width: 780px) {
+  .service-card { flex-basis: calc(33.333% - 16px); }
 }
 .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-pop); }
 .service-card img {
