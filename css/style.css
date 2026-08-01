@@ -450,15 +450,17 @@ p { text-wrap: pretty; }
 }
 .ba__knob svg { width: 16px; height: 16px; color: var(--ink); }
 
-/* ---------- Service cards (equal-weight tiles, wraps to a centered last row) ---------- */
+/* ---------- Service cards (5 services + a matching CTA tile = a clean 3x2 grid, no leftovers) ---------- */
 .services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
-@media (min-width: 780px) {
-  .services { gap: 24px; }
+@media (min-width: 560px) {
+  .services { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .services { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 
 .service-card {
@@ -468,14 +470,7 @@ p { text-wrap: pretty; }
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
   aspect-ratio: 3 / 4;
-  flex: 0 1 260px;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-}
-@media (min-width: 560px) {
-  .service-card { flex-basis: calc(50% - 10px); }
-}
-@media (min-width: 780px) {
-  .service-card { flex-basis: calc(33.333% - 16px); }
 }
 .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-pop); }
 .service-card img {
@@ -529,6 +524,29 @@ p { text-wrap: pretty; }
 @media (hover: none) {
   .service-card__body p { max-height: 120px; opacity: 1; margin-top: 8px; }
 }
+
+/* CTA tile: fills the 6th grid cell, same size as the photo cards */
+.service-card--cta {
+  display: block;
+  background: linear-gradient(155deg, var(--rinse) 0%, var(--rinse-dark) 100%);
+}
+.service-card--cta .service-card__body p {
+  max-height: none;
+  opacity: 1;
+  margin-top: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.service-card__link svg { width: 18px; height: 18px; transition: transform 0.3s var(--ease); }
+.service-card--cta:hover .service-card__link svg { transform: translateX(4px); }
 
 /* ---------- Split (text + image) ---------- */
 .split {
