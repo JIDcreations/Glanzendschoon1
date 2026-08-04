@@ -1,13 +1,13 @@
 # Glanzend Schoon — website
 
-Nieuwe, statische website (geen build-tool nodig) ter vervanging van de oude site. Eén pagina met vaste anchor-navigatie (Home, Over ons, Diensten, Werkwijze, Neem contact op): Hero (met voor/na-schuifknop en wazige achtergrondfoto), Troeven-carrousel, Over ons, Diensten, Werkwijze, Galerij, Contact.
+Nieuwe, statische website (geen build-tool nodig) ter vervanging van de oude site. Eén pagina met vaste anchor-navigatie (Home, Over ons, Diensten, Werkwijze, Neem contact op): Hero (volledig beeldvullende foto), Troeven-carrousel, Over ons, Diensten, Werkwijze, Galerij, Contact.
 
 ## Structuur
 
 ```
 index.html               – volledige one-pager
 css/style.css             – volledig design system (kleuren, typografie, componenten)
-js/main.js                – mobiel menu, voor/na-schuifknop, troeven-carrousel, scroll-spy nav, formuliervalidatie, scroll-animaties
+js/main.js                – mobiel menu, troeven-carrousel, scroll-spy nav, formuliervalidatie, scroll-animaties
 assets/img/                – geoptimaliseerde webp-afbeeldingen + favicon
 assets/source/             – originele, ongewijzigde foto's van de oude site (referentie, niet gelinkt)
 Info/Structure-Client.pdf  – structuurwensen van de klant (referentie)
